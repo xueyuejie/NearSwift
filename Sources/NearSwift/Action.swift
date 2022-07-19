@@ -134,6 +134,10 @@ extension Stake: BorshCodable {
 public struct AddKey: IAction {
     public let publicKey: PublicKey
     public let accessKey: AccessKey
+    public init(publicKey: PublicKey,accessKey: AccessKey) {
+        self.publicKey = publicKey
+        self.accessKey = accessKey
+    }
 }
 
 extension AddKey: HumanReadable {
