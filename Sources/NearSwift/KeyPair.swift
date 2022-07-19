@@ -14,6 +14,7 @@ public protocol KeyPair {
     func verify(message: Data, signature: Data) throws -> Bool
     func getPublicKey() -> PublicKey
     func getSecretKey() -> String
+    func getKeytype() -> KeyType
 }
 
 public struct KeyPairEd25519: KeyPair, CustomStringConvertible {
@@ -47,6 +48,10 @@ public struct KeyPairEd25519: KeyPair, CustomStringConvertible {
     
     public func getSecretKey() -> String {
         return secretKey
+    }
+    
+    public func getKeytype() -> KeyType {
+        return .ED25519
     }
     
     public func sign(message: Data) throws -> Signature {
@@ -91,6 +96,10 @@ public struct KeyPairSecp256k1: KeyPair, CustomStringConvertible {
     
     public func getSecretKey() -> String {
         return secretKey
+    }
+    
+    public func getKeytype() -> KeyType {
+        return .SECP256k1
     }
     
     public func sign(message: Data) throws -> Signature {
