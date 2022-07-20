@@ -77,7 +77,7 @@ public final class Account {
         firstly {
             when(fulfilled: provider.experimentalProtocolConfig(blockQuery: .finality(.final)), viewState())
         }.map { (protocolConfig, state) -> AccountBalance in
-            guard let storageAmountPerByte = protocolConfig.runtimeConfig?.storageAmountPerByte else {
+            guard let storageAmountPerByte = protocolConfig.runtime_config?.storage_amount_per_byte else {
                 throw NearError.providerError("Protocol Config Error")
             }
             let costPerByte = UInt128(stringLiteral: storageAmountPerByte)
