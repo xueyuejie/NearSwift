@@ -163,6 +163,9 @@ extension AddKey: BorshCodable {
 
 public struct DeleteKey: IAction {
     public let publicKey: PublicKey
+    public init(publicKey:PublicKey) {
+        self.publicKey = publicKey
+    }
 }
 
 extension DeleteKey: HumanReadable {
