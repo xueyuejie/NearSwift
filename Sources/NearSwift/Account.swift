@@ -93,7 +93,7 @@ public final class Account {
                 throw NearError.providerError("Protocol Config Error")
             }
             let costPerByte = UInt128(stringLiteral: storageAmountPerByte)
-            let stateStaked = UInt128(integerLiteral: UInt64(state.storageUsage)) * costPerByte
+            let stateStaked = UInt128(integerLiteral: UInt64(state.storage_usage)) * costPerByte
             let staked = UInt128(stringLiteral: state.locked)
             let totalBalance = UInt128(stringLiteral: state.amount) + staked
             let availableBalance = totalBalance - max(staked, stateStaked)

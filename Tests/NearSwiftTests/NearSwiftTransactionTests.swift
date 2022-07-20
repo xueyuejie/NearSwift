@@ -75,7 +75,7 @@ class NearSwiftTransactionTests: XCTestCase {
                 let accountState = try account.viewState().wait()
                 let accessKey = try account.viewAccessKey(publicKey: publicKey).wait()
                 
-                let blockHash = try BlockHash(encodedString: accountState.blockHash)
+                let blockHash = try BlockHash(encodedString: accountState.block_hash)
                 let transaction = Transaction(signerId: account.accountId,
                                               publicKey: publicKey,
                                               nonce: accessKey.nonce + 1,
