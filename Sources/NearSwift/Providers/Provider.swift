@@ -301,13 +301,13 @@ public struct ChangeResult: Decodable {
 }
 
 public struct ExperimentalNearProtocolConfig: Decodable {
-    public let chainId: String
-    public let genesisHeight: Int
-    public let runtimeConfig: ExperimentalNearProtocolRuntimeConfig?
+    public let chain_id: String
+    public let genesis_height: Int
+    public let runtime_config: ExperimentalNearProtocolRuntimeConfig?
 }
 
 public struct ExperimentalNearProtocolRuntimeConfig: Decodable {
-    public let storageAmountPerByte: String
+    public let storage_amount_per_byte: String
 }
 
 public struct GasPrice: Codable {
