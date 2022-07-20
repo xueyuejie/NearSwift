@@ -34,7 +34,7 @@ public struct AccountState: Codable {
     public init(from decoder: Decoder) throws {
       let container = try decoder.container(keyedBy: CodingKeys.self)
         accountId = try container.decodeIfPresent(String.self, forKey: .accountId)
-        staked = try container.decode(String.self, forKey: .staked)
+        staked = try container.decodeIfPresent(String.self, forKey: .staked)
         locked = try container.decode(String.self, forKey: .locked)
         amount = try container.decode(String.self, forKey: .amount)
         code_hash = try container.decode(String.self, forKey: .code_hash)
