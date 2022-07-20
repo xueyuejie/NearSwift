@@ -16,8 +16,34 @@ public struct AccountState: Codable {
     public let code_hash: String
     public let block_hash: String
     public let block_height: UInt64
-    public let storage_paid_at: Int
-    public let storage_usage: Int
+    public let storage_paid_at: Int64
+    public let storage_usage: Int64
+    
+    private enum CodingKeys: String, CodingKey {
+      case accountId,
+           staked,
+           locked,
+           amount,
+           code_hash,
+           block_hash,
+           block_height,
+           storage_paid_at,
+           storage_usage
+    }
+
+    public init(from decoder: Decoder) throws {
+      let container = try decoder.container(keyedBy: CodingKeys.self)
+        accountId = try container.decodeIfPresent(String.self, forKey: .accountId)
+        staked = try container.decode(String.self, forKey: .staked)
+        locked = try container.decode(String.self, forKey: .locked)
+        amount = try container.decode(String.self, forKey: .amount)
+        code_hash = try container.decode(String.self, forKey: .code_hash)
+        block_hash = try container.decode(String.self, forKey: .block_hash)
+        block_height = try container.decode(UInt64.self, forKey: .block_height)
+        storage_paid_at = try container.decode(Int64.self, forKey: .storage_paid_at)
+        storage_usage = try container.decode(Int64.self, forKey: .storage_usage)
+    }
+    
 }
 
 public struct AccountAccessKey: Decodable {
