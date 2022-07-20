@@ -13,23 +13,23 @@ public struct AccountState: Codable {
     public let staked: String?
     public let locked: String
     public let amount: String
-    public let codeHash: String
-    public let blockHash: String
-    public let blockHeight: UInt64
-    public let storagePaidAt: Int
-    public let storageUsage: Int
+    public let code_hash: String
+    public let block_hash: String
+    public let block_height: UInt64
+    public let storage_paid_at: Int
+    public let storage_usage: Int
     
-    private enum CodingKeys: String, CodingKey {
-        case accountId
-        case staked
-        case locked
-        case amount
-        case codeHash = "code_hash"
-        case blockHash = "block_hash"
-        case blockHeight = "block_height"
-        case storagePaidAt = "storage_paid_at"
-        case storageUsage = "storage_usage"
-    }
+//    private enum CodingKeys: String, CodingKey {
+//        case accountId
+//        case staked
+//        case locked
+//        case amount
+//        case codeHash = "code_hash"
+//        case blockHash = "block_hash"
+//        case blockHeight = "block_height"
+//        case storagePaidAt = "storage_paid_at"
+//        case storageUsage = "storage_usage"
+//    }
 }
 
 public struct AccountAccessKey: Decodable {
