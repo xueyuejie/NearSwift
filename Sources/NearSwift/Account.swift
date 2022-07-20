@@ -18,6 +18,18 @@ public struct AccountState: Codable {
     public let blockHeight: UInt64
     public let storagePaidAt: Int
     public let storageUsage: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case accountId
+        case staked
+        case locked
+        case amount
+        case codeHash = "code_hash"
+        case blockHash = "block_hash"
+        case blockHeight = "block_height"
+        case storagePaidAt = "storage_paid_at"
+        case storageUsage = "storage_usage"
+    }
 }
 
 public struct AccountAccessKey: Decodable {
